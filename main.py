@@ -20,7 +20,7 @@ async def upload_pdf(file: UploadFile = File(...)):
     store_chunks(chunks)
     os.remove(file_path)
 
-    return {"message": f"{len(chunks)} chunk saxlanıldı"}
+    return {"message": f"{len(chunks)} chunk stored."}
 
 @app.post("/ask")
 async def ask(request: QuestionRequest):
@@ -31,4 +31,4 @@ async def ask(request: QuestionRequest):
 async def reset():
     from rag import reset_collection
     reset_collection()
-    return {"message": "ChromaDB təmizləndi"}
+    return {"message": "ChromaDB resetted."}
